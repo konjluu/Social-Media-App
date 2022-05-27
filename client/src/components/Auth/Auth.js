@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Avatar, Button, Paper, Grid, Typography, Container } from '@material-ui/core';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { GoogleLogin } from 'react-google-login';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 
@@ -13,11 +13,11 @@ import Input from './Input';
 
 const initialState = { firstName: '', lastName: '', email: '', password: '', confirmPassword: '' };
 
-const SignUp = () => {
+const Auth = () => {
     const [form, setForm] = useState(initialState);
     const [isSignup, setIsSignup] = useState(false);
     const dispatch = useDispatch();
-    const history = useNavigate();
+    const history = useHistory();
     const classes = useStyles();
 
     const [showPassword, setShowPassword] = useState(false);
@@ -89,7 +89,7 @@ const SignUp = () => {
                         onFailure={googleError}
                         cookiePolicy="single_host_origin"
                     />
-                    <Grid container justify="flex-end">
+                    <Grid container justifyContent="flex-end">
                         <Grid item>
                             <Button onClick={RoutesMode}>
                                 {isSignup ? 'Already have an account? Sign in' : "Don't have an account? Sign Up"}
@@ -102,4 +102,4 @@ const SignUp = () => {
     );
 };
 
-export default SignUp;
+export default Auth;

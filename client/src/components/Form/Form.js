@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { TextField, Button, Typography, Paper } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import FileBase from 'react-file-base64';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import ChipInput from 'material-ui-chip-input';
 
 import { createPost, updatePost } from '../../actions/posts';
@@ -14,7 +14,7 @@ const Form = ({ currentId, setCurrentId }) => {
   const dispatch = useDispatch();
   const classes = useStyles();
   const user = JSON.parse(localStorage.getItem('profile'));
-  const history = useNavigate();
+  const history = useHistory();
 
   const clear = () => {
     setCurrentId(0);

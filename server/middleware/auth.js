@@ -26,3 +26,4 @@ const auth = async (req, res, next) => {
 };
 
 export default auth;
+// đón nhận req của client -> kiểm tra xem có hợp lệ để đi vào server không.

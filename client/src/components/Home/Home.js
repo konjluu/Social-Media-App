@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Grow, Grid, AppBar, TextField, Button, Paper } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import ChipInput from 'material-ui-chip-input';
 
 import { getPostsBySearch } from '../../actions/posts';
@@ -24,7 +24,7 @@ const Home = () => {
 
     const [search, setSearch] = useState('');
     const [tags, setTags] = useState([]);
-    const history = useNavigate();
+    const history = useHistory();
 
     const searchPost = () => {
         if (search.trim() || tags) {
@@ -48,7 +48,7 @@ const Home = () => {
     return (
         <Grow in>
             <Container maxWidth="xl">
-                <Grid container justify="space-between" alignItems="stretch" spacing={3} className={classes.gridContainer}>
+                <Grid container justifyContent="space-between" alignItems="stretch" spacing={3} className={classes.gridContainer}>
                     <Grid item xs={12} sm={6} md={9}>
                         <Posts setCurrentId={setCurrentId} />
                     </Grid>
